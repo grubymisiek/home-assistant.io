@@ -30,7 +30,7 @@ The library currently doesn't support encrypted connection to your alarm, so you
 
 A list of all zone and output IDs can be acquired by running DloadX program and connecting to your alarm.
 
-For more information on the available zone visualisation types, take a look at the [Binary Sensor](/components/binary_sensor.alarmdecoder/) documentation. Note: If no zones or outputs are specified, Home Assistant will not load any binary_sensor components."
+For more information on the available zone visualisation types, take a look at the [Binary Sensor](/components/binary_sensor.alarmdecoder/) documentation. Note: If no zones or outputs are specified, Home Assistant will not load any binary_sensor components.
 
 ## {% linkable_title Configuration %}
 
@@ -64,30 +64,30 @@ arm_home_mode:
   default: 1
   type: integer
 zones:
-  description: "This parameter lists the zones (or inputs) that will be visible by Home Assistant. For each zone, a proper ID must be given as well as its name. The name is arbitrary and does not need to match the one specified in Satel Integra alarm configuration."
+  description: "This parameter lists the inputs that will be visible by Home Assistant. For each input, a proper ID must be given as well as its name. The name is arbitrary and does not need to match the one specified in Satel Integra alarm configuration."
   required: false
   type: [integer, list]
   keys:
     name:
-      description: Name of the zone.
+      description: Name of the input.
       required: true
       type: string
     type:
-      description: The zone type.
+      description: The input type (to be set from binary sensor device classes).
       required: false
       default: motion
       type: string
 outputs:
-  description: "Very similar to zones, but with outputs. Satel Integra uses outputs to inform external systems about different events. For example power failure, or that alarm started counting for exit or some other user-defined condition. They may be used for simple alarm-based automation. For more information please refer to Satel homepage and forums."
+  description: "Opposite to inputs, you can see output status. Satel Integra uses outputs to inform external systems about events, failures, alarms, countdowns, armed zones etc. Every option is widely described in Satel Integra's Programming Manual. They may be used for simple alarm-based automation. There are also virtual outputs available. For more information please refer to Satel homepage."
   required: false
   type: [integer, list]
   keys:
     name:
-      description: Name of the zone.
+      description: Name of the output.
       required: true
       type: string
     type:
-      description: The zone type.
+      description: The output type.
       required: false
       default: motion
       type: string
